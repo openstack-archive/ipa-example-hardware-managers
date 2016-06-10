@@ -3,6 +3,9 @@ ipa-example-hardware-managers
 
 Example hardware managers for use with the `ironic python agent <http://git.openstack.org/cgit/openstack/ironic-python-agent>`_.
 
+Examples and Use Cases Provided
+===============================
+
 Example Device Hardware Manager
 -------------------------------
 
@@ -30,3 +33,15 @@ Use Cases include:
   * Asserting truths about the node; such as number of disks or total RAM.
   * Reporting metrics about the node's hardware state.
   * Overriding logic of get_os_install_device().
+
+
+Make your own Manager based on these
+====================================
+To make your own hardware manager based on these examples, copy or fork the
+relevant examples out of this repository. Modify classnames and entrypoints
+in setup.cfg to be not-examples.
+
+Since the entrypoints are defined in setup.cfg, simply installing your new
+python package alongside IPA in a custom ramdisk should be enough to enable
+the new hardware manager.
+
