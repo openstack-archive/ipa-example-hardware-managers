@@ -142,5 +142,10 @@ class ExampleDeviceHardwareManager(hardware.HardwareManager):
         else:
             LOG.debug('Firmware version X found, upgrading to Y')
             # Perform firmware upgrade.
-            _upgrade_firmware()
+            try:
+                _upgrade_firmware()
+            except Exception as e:
+                # Log and pass through the exception so cleaning will fail
+                LOG.exception(e)
+                raise
             return True
